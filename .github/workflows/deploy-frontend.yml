@@ -35,8 +35,7 @@ jobs:
             --exclude "iam_policy*.json" \
             --exclude "*.md" \
             --exclude ".gitignore" \
-            --delete \
-            --acl public-read
+            --delete
 
       - name: Invalidate CloudFront cache
         run: |
