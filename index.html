@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Library</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="piano-overlay piano-overlay-left"></div>
+  <div class="piano-overlay piano-overlay-right"></div>
+
+  <main class="card">
+    <header class="hero">
+      <div class="hero-text">
+        <h1>My Personal Library</h1>
+        <p class="sub">A quiet corner in the cloud · 私人云端图书馆</p>
+        <p class="footer-text">Hosted on AWS · S3 + CloudFront + API Gateway + Lambda + DynamoDB</p>
+      </div>
+      <div class="hero-icon" aria-hidden="true">
+        <span class="note note-1">♩</span>
+        <span class="note note-2">♫</span>
+        <span class="note note-3">♬</span>
+      </div>
+    </header>
+
+    <section class="controls">
+      <div class="controls-center">
+        <button id="load-btn" class="primary-btn" onclick="loadBooks()">加载书籍</button>
+        <span id="status-text" class="status-text">点击「加载书籍」从云端获取你的藏书。</span>
+      </div>
+    </section>
+
+    <section id="books" class="books"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
