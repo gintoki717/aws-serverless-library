@@ -3,40 +3,8 @@ var API_BASE = "https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod";
 // 兼容性更好的请求实现（优先使用 XMLHttpRequest，因为 Kindle 更兼容）
 function makeRequest(url, callback) {
   try {
-    // 优先使用 XMLHttpRequest（Kindle 等旧浏览器更兼容）
-    if (typeof XMLHttpRequest !== "undefined") {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url, true);
-      xhr.setRequestHeader("Accept", "application/json");
-      
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200 || xhr.status === 0) {
-            try {
-              var data = JSON.parse(xhr.responseText);
-              callback(null, data);
-            } catch (e) {
-              callback(new Error("解析响应失败"), null);
-            }
-          } else if (xhr.status > 0) {
-            callback(new Error("HTTP " + xhr.status), null);
-          } else {
-            callback(new Error("网络错误"), null);
-          }
-        }
-      };
-      
-      xhr.onerror = function() {
-        callback(new Error("网络错误"), null);
-      };
-      
-      try {
-        xhr.send();
-      } catch (e) {
-        callback(new Error("发送请求失败"), null);
-      }
-    } else if (typeof fetch !== "undefined") {
-      // 备用：使用 fetch（现代浏览器）
+    if (typeof fetch !== "undefined") {
+      // Use fetch for modern browsers
       fetch(url, {
         method: "GET",
         headers: {
@@ -55,11 +23,25 @@ function makeRequest(url, callback) {
       .catch(function(err) {
         callback(err, null);
       });
+    } else if (typeof XMLHttpRequest !== "undefined") {
+      // Fallback for older browsers
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            callback(null, JSON.parse(xhr.responseText));
+          } else {
+            callback(new Error("HTTP " + xhr.status), null);
+          }
+        }
+      };
+      xhr.send();
     } else {
-      callback(new Error("浏览器不支持网络请求"), null);
+      callback(new Error("Network requests not supported"), null);
     }
   } catch (e) {
-    callback(new Error("请求异常：" + e.message), null);
+    callback(new Error("Request error: " + e.message), null);
   }
 }
 
@@ -231,4 +213,3 @@ function downloadBook(bookId) {
     }
   });
 }
-
