@@ -1,4 +1,4 @@
-# Trigger GitHub Actions - test deployment
+# Trigger GitHub Actions - test deployment again
 import json
 import boto3
 import os
