@@ -1,4 +1,4 @@
-# Trigger GitHub Actions - test deployment x 2
+# Trigger GitHub Actions - fix backend folder case for GitHub Actions
 import json
 import boto3
 import os
