@@ -17,12 +17,22 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+      - name: Debug - list files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in backend directory:"
+          ls -la Backend/
+          echo "Files in root:"
+          ls -la
       - name: Zip Lambda code
         run: |
-          cd backend
+          cd Backend
           zip -r lambda_function.zip lambda_function.py
+          echo "ZIP file created:"
+          ls -la *.zip
       - name: Deploy to Lambda
         run: |
           aws lambda update-function-code \
             --function-name MyLibraryAPI \
-            --zip-file fileb://backend/lambda_function.zip
+            --zip-file fileb://Backend/lambda_function.zip
