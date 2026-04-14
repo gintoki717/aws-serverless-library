@@ -19,12 +19,16 @@ Features (EN)
 ## 在线 Demo 链接
 - **CloudFront Domain (Frontend)**: https://d17998ldacan6b.cloudfront.net
 - **API Gateway Invoke URL (Base URL)**: https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod
-- **Books list**:GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books
-- **Download**:GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/{id}/download
+- **Books list**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books
+- **Book detail (example: read-002)**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/read-002
+- **Download (example: read-002)**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/read-002/download
+ 
+提示：不要直接访问 `.../prod`（Base URL 根路径），否则可能返回 `Missing Authentication Token`；请访问上述具体路由。
 
 Demo Links (EN)
 - **Frontend**: CloudFront domain above.
 - **Backend**: API Gateway base URL above.
+- Tip: do not open the Base URL root path directly (it may return `Missing Authentication Token`). Use the routes above.
 
 ## 架构概览
 ![alt text](<Architecture Diagram.png>)
