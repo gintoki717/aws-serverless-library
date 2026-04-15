@@ -31,7 +31,7 @@ Demo Links (EN)
 - Tip: do not open the Base URL root path directly (it may return `Missing Authentication Token`). Use the routes above.
 
 ## 架构概览
-![alt text](image.png)
+![alt text](<Architecture Diagram.png>)
 - **Frontend**：S3（静态资源） + CloudFront（CDN）
 - **Backend**：API Gateway（REST API） + Lambda（业务逻辑）
 - **Data**：DynamoDB（书籍元数据） + S3（书籍文件，私有桶）
@@ -49,7 +49,7 @@ Architecture (EN)
 - **下载文件**：Lambda 返回 Presigned URL；User/Browser -> S3（Books Bucket）
 
 ## CI/CD（GitHub Actions）
-![alt text](image-1.png)
+![alt text](<CICD Diagram.png>)
 
 CI/CD (EN)
 - Frontend: sync static assets to S3 + invalidate CloudFront cache.
