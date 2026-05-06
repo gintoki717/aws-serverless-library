@@ -16,21 +16,15 @@ Features (EN)
 - **Secure static hosting**: S3 Block Public Access + CloudFront OAC.
 - **CI/CD**: GitHub Actions deploys frontend (S3 + CloudFront invalidation) and backend (Lambda update-function-code).
 
-## 在线 Demo 链接
-- **CloudFront Domain (Frontend)**: https://d17998ldacan6b.cloudfront.net
-- **API Gateway Invoke URL (Base URL)**: https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod
+## Live Project
+- **CloudFront Domain**: https://d17998ldacan6b.cloudfront.net
 - **Books list**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books
 - **Book detail (example: read-002)**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/read-002
 - **Download (example: read-002)**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/read-002/download
  
-提示：不要直接访问 `.../prod`（Base URL 根路径），否则可能返回 `Missing Authentication Token`；请访问上述具体路由。
 
-Demo Links (EN)
-- **Frontend**: CloudFront domain above.
-- **Backend**: API Gateway base URL above.
-- Tip: do not open the Base URL root path directly (it may return `Missing Authentication Token`). Use the routes above.
 
-## 架构概览
+## Architecture Diagram
 ![alt text](docs/Architecture_Diagram.png)
 - **Frontend**：S3（静态资源） + CloudFront（CDN）
 - **Backend**：API Gateway（REST API） + Lambda（业务逻辑）
