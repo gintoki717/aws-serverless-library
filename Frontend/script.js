@@ -117,12 +117,12 @@ function loadBooks() {
             '<div class="book-header">' +
               '<div class="book-info">' +
                 '<h3>' + title + '</h3>' +
-                '<p class="book-meta">作者 · ' + author + '</p>' +
+                '<p class="book-meta">Author · ' + author + '</p>' +
                 '<p class="book-desc">' + desc + '</p>' +
               '</div>' +
               '<button class="download-btn" onclick="downloadBook(\'' + bookId + '\')" title="下载书籍">' +
                 '<span class="download-icon">⬇</span>' +
-                '<span class="download-text">下载</span>' +
+                '<span class="download-text">Download</span>' +
               '</button>' +
             '</div>';
 

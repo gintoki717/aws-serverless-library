@@ -130,14 +130,14 @@ body {
 
 .controls {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 12px 0 14px;
 }
 
 .controls-center {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   width: 100%;
 }
@@ -181,9 +181,28 @@ body {
 .books {
   margin-top: 8px;
   max-height: 420px;
-  overflow: auto;
-  padding-right: 4px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
   border-top: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.books::-webkit-scrollbar {
+  width: 8px;
+}
+
+.books::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 4px;
+}
+
+.books::-webkit-scrollbar-thumb {
+  background: rgba(233, 196, 106, 0.4);
+  border-radius: 4px;
+}
+
+.books::-webkit-scrollbar-thumb:hover {
+  background: rgba(233, 196, 106, 0.6);
 }
 
 .book {
