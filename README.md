@@ -16,14 +16,6 @@ Features (EN)
 - **Secure static hosting**: S3 Block Public Access + CloudFront OAC.
 - **CI/CD**: GitHub Actions deploys frontend (S3 + CloudFront invalidation) and backend (Lambda update-function-code).
 
-## Live Project
-- **CloudFront Domain**: https://d17998ldacan6b.cloudfront.net
-- **Books list**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books
-- **Book detail (example: read-002)**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/read-002
-- **Download (example: read-002)**: GET https://szpo4xcaqj.execute-api.us-east-1.amazonaws.com/prod/books/read-002/download
- 
-
-
 ## Architecture Diagram
 ![alt text](docs/Architecture_Diagram.png)
 - **Frontend**：S3（静态资源） + CloudFront（CDN）
